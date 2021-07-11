@@ -1,16 +1,16 @@
 require_relative "spec_helper"
 
-def app
-  ApplicationController
-end
-
-describe ApplicationController do
-  it "responds with a welcome message" do
-    get '/'
-    expect(last_response.status).to eq(200)
-    expect(last_response.body).to include("Welcome to the Sinatra Template!")
-  end
-end
+# def app
+#   ApplicationController
+# end
+#
+# describe ApplicationController do
+#   it "responds with a welcome message" do
+#     get '/'
+#     expect(last_response.status).to eq(200)
+#     expect(last_response.body).to include("Welcome to the Sinatra Template!")
+#   end
+# end
 #
 # describe UsersController do
 #   describe "Signup Page" do
@@ -29,7 +29,15 @@ end
 #       expect(last_response.location).to include("/user/#{user.slug}")
 #     end
 #
-#     it "" do
+#     it "does not let a user sign up without password" do
+#       params = {
+#         :username => "Prince4real",
+#         :email => "purple1@aol.com",
+#         :password => ""
+#       }
+#       post '/signup', params
+#       expect(last_response.location).to include("/signup")
+#       expect(last_response.body).to include("Missing Data")
 #     end
 #
 #   end
@@ -44,7 +52,7 @@ end
 #   describe "Logout" do
 #
 #   end
-#
+# 
 # end
 #
 # describe BooksController do

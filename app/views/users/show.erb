@@ -1,0 +1,31 @@
+<% if Helpers.logged_in?(session) && session[:user_id] == @user.id %>
+<h2>Welcome, <i><%= @user.username %>!</i>  Here is your reading list.</h2>
+<% else %>
+<h2>Here is <%= @user.username %>'s reading list.</h2>
+<% end %>
+Click on the book's title for more info!
+<br>
+<br>
+
+<h3><i>In Progress:</i></h3>
+<% @in_progress.each do |book| %>
+<u><a href="/books/<% book.slug %>"><%= book.title %></a></u> by: <%= book.author %><br>
+<% end %>
+<br>
+
+<h3><i>Unread:</i></h3>
+<% @unread.each do |book| %>
+<u><a href="/books/<% book.slug %>"><%= book.title %></a></u> by: <%= book.author %><br>
+<% end %>
+<br>
+
+<h3><i>Finished:</i></h3>
+<% @finished.each do |book| %>
+<u><a href="/books/<% book.slug %>"><%= book.title %><a/></u> by: <%= book.author %><br>
+<% end %>
+<br>
+<br>
+<br>
+<% if Helpers.logged_in?(session) && session[:user_id] == @user.id %>
+  <a href="/books/new">Add a new book</a>
+<% end %>

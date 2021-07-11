@@ -1,0 +1,16 @@
+Reader: <%= @book.user.username %><br>
+Book: <b><%= @book.title %></b><br>
+Author: <%= @book.author %><br>
+<% if @book.year_of_publication %>
+Year Of Publication: <%= @book.year_of_publication %>
+<% end %>
+<br>
+Progress: <%= @book.progress %><br>
+<% if @book.user_rating && @book.progress == "Finished" %>
+<%= @book.user.username %>'s Rating: <%= @book.user_rating %>
+<% end %>
+<br>
+<% if !@book.user_review.empty? %>
+<%= @book.user.username %>'s Thoughts on <%= @book.title %>: "<%= @book.user_review %>"
+<% end %>
+<br>
