@@ -1,16 +1,26 @@
+<h1><%= @book.user.username %>'s <u><%= @book.title %></u> Page </h1>
+
 Reader: <%= @book.user.username %><br>
 Book: <b><%= @book.title %></b><br>
 Author: <%= @book.author %><br>
 <% if @book.year_of_publication %>
-Year Of Publication: <%= @book.year_of_publication %>
+Year Of Publication: <%= @book.year_of_publication %><br>
 <% end %>
-<br>
-Progress: <%= @book.progress %><br>
+<% if @book.category %>
+Category: <%= @book.category %><br>
+<% end %>
+<% if @book.genre %>
+Genre: <%= @book.genre %><br>
+<% end %>
+Current Progress: <%= @book.progress %><br>
 <% if @book.user_rating && @book.progress == "Finished" %>
-<%= @book.user.username %>'s Rating: <%= @book.user_rating %>
+<i><%= @book.user.username %>'s</i> Rating: <%= @book.user_rating %>/5<br>
+<% end %>
+<% if !!@book.user_review %>
+<i><%= @book.user.username %>'s</i> Thoughts on <b><%= @book.title %></b>: "<%= @book.user_review %>"<br>
 <% end %>
 <br>
-<% if !@book.user_review.empty? %>
-<%= @book.user.username %>'s Thoughts on <%= @book.title %>: "<%= @book.user_review %>"
-<% end %>
 <br>
+<% if Helpers.logged_in?(session) && session[:user_id] == @book.user_id %>
+<a href="/books/<%= @book.id %>/edit">Click Here To Edit This Entry</a>
+<% end %>

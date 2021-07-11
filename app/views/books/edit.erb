@@ -1,0 +1,19 @@
+<form action="/books/<%= @book.id %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+  Title: <input type="text" name="title" placeholder="<%= @book.title %>"><br>
+  Author: <input type="text" name="author" placeholder="<%= @book.author %>"><br>
+  Year Of Publication: <input type="text" name="year_of_publication" placeholder="<%= @book.year_of_publication %>"><br>
+  Category (Fiction or Non-Fiction): <input type="text" name="category" placeholder="<%= @book.category %>"><br>
+  Genre: <input type="text" name="genre" placeholder="<%= @book.genre %>"><br>
+  Progress: Unread <input type="radio" name="progress" value="Unread" <%='checked' if @book.progress == "Unread" %>>
+    In Progress <input type="radio" name="progress" value="In Progress" <%='checked' if @book.progress == "In Progress" %>>
+    Finished <input type="radio" name="progress" value="Finished" <%='checked' if @book.progress == "Finished" %>><br>
+  Rating (0-5 low to high): 0 <input type="radio" name="user_rating" value="0" <%='checked' if @book.user_rating == 0 %>>
+    1 <input type="radio" name="user_rating" value="1" <%='checked' if @book.user_rating == 1 %>>
+    2 <input type="radio" name="user_rating" value="2" <%='checked' if @book.user_rating == 2 %>>
+    3 <input type="radio" name="user_rating" value="3" <%='checked' if @book.user_rating == 3 %>>
+    4 <input type="radio" name="user_rating" value="4" <%='checked' if @book.user_rating == 4 %>>
+    5 <input type="radio" name="user_rating" value="5" <%='checked' if @book.user_rating == 5 %>><br>
+  Thoughts & Review: <input type="textarea" name="user_review" placeholder="<%= @book.user_review %>"><br>
+  <input type="submit" value="Edit Book">
+</form>
