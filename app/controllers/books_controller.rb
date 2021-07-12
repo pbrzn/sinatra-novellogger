@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   get '/books' do
-    @books = Book.all
     @users = User.all
     erb :'books/index'
   end

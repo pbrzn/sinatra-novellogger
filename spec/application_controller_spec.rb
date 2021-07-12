@@ -61,10 +61,28 @@ describe ApplicationController do
         expect(last_response.location).to include("/users/#{user.id}")
       end
 
+      it 'does not let a logged in user view the signup page' do
+      user = User.create(:username => "skittles123", :email => "skittles@aol.com", :password => "rainbows")
+      params = {
+        :username => "skittles123",
+        :email => "skittles@aol.com",
+        :password => "rainbows"
+      }
+      post '/signup', params
+      get '/signup'
+      expect(last_response.location).to include("/users/#{user.id}")
+    end
+
     end
     describe "Login Page" do
-      it "lets a user login" do
-        user = User.new(:username => "kennyG", :password => "saxxxman")
+
+      it "loads the login page" do
+        get '/login'
+        expect(last_response.status).to eq(200)
+      end
+
+      it "lets a user login and redirects to their user page" do
+        user = User.create(:username => "kennyG", :email => "Gman@hotmail.com", :password => "saxxxman")
         params = {
           :username => "kennyG",
           :password => "saxxxman"
@@ -74,7 +92,14 @@ describe ApplicationController do
       end
 
       it "does not let a user login with incorrect password" do
-
+        user = User.create(:username => "kennyG", :email => "Gman@hotmail.com", :password => "saxxxman")
+        params = {
+          :username => "kennyG",
+          :password => "saxman"
+        }
+        post '/login', params
+        expect(last_response.location).to include("/login")
+        expect(last_response.body).to include("Incorret Login Information")
       end
 
     end

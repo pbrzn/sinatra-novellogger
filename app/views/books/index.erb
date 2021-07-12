@@ -1,1 +1,8 @@
-<h1>All Books Tracked On Novellogger</h1>
+<h2>All Books Currently Being Tracked On Novellogger</h2>
+<% @users.each do |user| %>
+  <b><%= user.username %>'s Books:</b><br>
+  <% user.books.each do |book| %>
+    <a href="/books/<%= book.id %>"><%= book.title %></a> by : <%= book.author %><br>
+  <% end %>
+  <br>
+<% end %>
