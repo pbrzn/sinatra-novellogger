@@ -11,6 +11,13 @@
     width: 100%;
   }
 
+  /* img.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  } */
+
   /* --- Welcome Page Styles --- */
   body {
     background-color: lightblue;
@@ -28,11 +35,6 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
-  }
-
-  img#novellogger-logo {
-    float: left;
-    padding: 10px;
   }
 
   h1 {
