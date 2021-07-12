@@ -9,23 +9,30 @@ Click on the book's title for more info!
 
 <h3><i>In Progress:</i></h3>
 <% @in_progress.each do |book| %>
-<u><a href="/books/<% book.slug %>"><%= book.title %></a></u> by: <%= book.author %><br>
+<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
 <% end %>
 <br>
 
 <h3><i>Unread:</i></h3>
 <% @unread.each do |book| %>
-<u><a href="/books/<% book.slug %>"><%= book.title %></a></u> by: <%= book.author %><br>
+<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
 <% end %>
 <br>
 
 <h3><i>Finished:</i></h3>
 <% @finished.each do |book| %>
-<u><a href="/books/<% book.slug %>"><%= book.title %><a/></u> by: <%= book.author %><br>
+<u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
 <% end %>
 <br>
 <br>
 <br>
 <% if Helpers.logged_in?(session) && session[:user_id] == @user.id %>
-  <a href="/books/new">Add a new book</a>
+  <form action="/books/new" method="get">
+    <input type="submit" value="Create A New Book">
+  </form>
+<% end %>
+<% if Helpers.logged_in?(session)%>
+  <form action="/logout" method="POST">
+    <input type="submit" value="Log Out">
+  </form>
 <% end %>

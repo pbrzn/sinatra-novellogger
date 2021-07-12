@@ -30,6 +30,11 @@
     width: 85%;
   }
 
+  img#novellogger-logo {
+    float: left;
+    padding: 10px;
+  }
+
   h1 {
     font-size: 36px;
     line-height: 54px;

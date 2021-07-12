@@ -22,5 +22,11 @@ Current Progress: <%= @book.progress %><br>
 <br>
 <br>
 <% if Helpers.logged_in?(session) && session[:user_id] == @book.user_id %>
-<a href="/books/<%= @book.id %>/edit">Click Here To Edit This Entry</a>
+<form action="/books/<%= @book.id %>/edit" method="GET">
+  <input type="submit" value="Edit Entry">
+</form>
+<form action="/books/<%= @book.id %>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Entry">
+</form>
 <% end %>
