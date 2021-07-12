@@ -54,6 +54,12 @@
     line-height: 36px;
   }
 
+  p.flash-error#flash-error {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+  }
+
   p {
     margin-bottom: 18px;
   }

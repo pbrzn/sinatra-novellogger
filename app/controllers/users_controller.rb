@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   use Rack::Flash
 
   get '/signup' do
-    erb :'users/signup'
+    if Helpers.logged_in?(session)
+      @user = Helpers.current_user(session)
+      flash[:error] = "You are already signed up and logged in!"
+      redirect "/users/#{@user.id}"
+    else
+      erb :'users/signup'
+    end
   end
 
   post '/signup' do
@@ -24,7 +30,7 @@ class UsersController < ApplicationController
       erb :'users/login'
     else
       @user = User.find(session[:user_id])
-      flash[:error] = "You Are Already Logged In."
+      flash[:error] = "You are already logged in!"
       redirect "/users/#{@user.id}"
     end
   end

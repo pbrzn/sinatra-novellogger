@@ -5,10 +5,10 @@
 <% end %>
 
 <% if flash.has?(:error) %>
-<%= flash[:error] %>
+<p class="flash-error" id="flash-error"><%= flash[:error] %></p>
 <% end %>
 
-Click on the book's title for more info!
+Click on the book's title for <%= @user.username %>'s thoughts and more info!
 <br>
 <br>
 
