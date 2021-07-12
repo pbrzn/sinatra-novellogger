@@ -3,6 +3,11 @@
 <% else %>
 <h2>Here is <%= @user.username %>'s reading list.</h2>
 <% end %>
+
+<% if flash.has?(:error) %>
+<%= flash[:error] %>
+<% end %>
+
 Click on the book's title for more info!
 <br>
 <br>
@@ -13,15 +18,15 @@ Click on the book's title for more info!
 <% end %>
 <br>
 
-<h3><i>Unread:</i></h3>
-<% @unread.each do |book| %>
-<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
-<% end %>
-<br>
-
 <h3><i>Finished:</i></h3>
 <% @finished.each do |book| %>
 <u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
+<% end %>
+<br>
+
+<h3><i>Unread:</i></h3>
+<% @unread.each do |book| %>
+<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
 <% end %>
 <br>
 <br>

@@ -1,6 +1,8 @@
 require 'bcrypt'
+require 'rack-flash'
 
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/signup' do
     erb :'users/signup'
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user_id
       redirect "/users/#{@user.id}"
     else
-      # ADD ERROR HERE
+      flash[:error] = "Missing Data. Please Try Again."
       redirect "/signup"
     end
   end
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
       erb :'users/login'
     else
       @user = User.find(session[:user_id])
+      flash[:error] = "You Are Already Logged In."
       redirect "/users/#{@user.id}"
     end
   end
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else
-      # ADD ERROR HERE
+      flash[:error] = "Incorrect Username Or Password. Please Try Again."
       redirect "/login"
     end
   end

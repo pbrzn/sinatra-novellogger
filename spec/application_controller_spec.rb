@@ -48,7 +48,7 @@ describe ApplicationController do
         }
         post '/signup', params
         expect(last_response.location).to include("/signup")
-        expect(last_response.body).to include("Missing Data")
+        expect(last_response.body).to include("Missing Data. Please Try Again.")
       end
 
       it "lets a new user sign up and redirects to their user page" do
@@ -99,7 +99,7 @@ describe ApplicationController do
         }
         post '/login', params
         expect(last_response.location).to include("/login")
-        expect(last_response.body).to include("Incorret Login Information")
+        expect(last_response.body).to include("Incorrect Username Or Password. Please Try Again.")
       end
 
     end
