@@ -8,6 +8,5 @@ ActiveRecord::Base.establish_connection(
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
 
-require_relative '../app/models/concerns/slugifiable.rb'
 require './app/controllers/application_controller'
 require_all 'app'
