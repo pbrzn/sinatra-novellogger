@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-      session[:user_id] = @user_id
+      session[:user_id] = @user.id
       redirect "/users/#{@user.id}"
     else
       flash[:error] = "Missing Data. Please Try Again."

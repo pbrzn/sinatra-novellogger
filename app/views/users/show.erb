@@ -8,27 +8,32 @@
 <p class="flash-error" id="flash-error"><%= flash[:error] %></p>
 <% end %>
 
-Click on the book's title for <%= @user.username %>'s thoughts and more info!
-<br>
-<br>
+<% if !@user.books.empty? %>
+  Click on the book's title for <%= @user.username %>'s thoughts and more info!
+  <br>
+  <br>
 
-<h3><i>In Progress:</i></h3>
-<% @in_progress.each do |book| %>
-<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
-<% end %>
-<br>
+  <h3><i>In Progress:</i></h3>
+  <% @in_progress.each do |book| %>
+  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <% end %>
+  <br>
 
-<h3><i>Finished:</i></h3>
-<% @finished.each do |book| %>
-<u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
-<% end %>
-<br>
+  <h3><i>Finished:</i></h3>
+  <% @finished.each do |book| %>
+  <u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
+  <% end %>
+  <br>
 
-<h3><i>Unread:</i></h3>
-<% @unread.each do |book| %>
-<u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <h3><i>Unread:</i></h3>
+  <% @unread.each do |book| %>
+  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <% end %>
+<% elsif @user.books.empty? && session[:user_id] != @user.id %>
+  <%= @user.username %> has not logged any books yet.
+<% else %>
+  You have not logged any books yet. Create a new book below!
 <% end %>
-<br>
 <br>
 <br>
 <% if Helpers.logged_in?(session) && session[:user_id] == @user.id %>
