@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   post '/books' do
     if !params[:title].empty? && !params[:author].empty?
       @book = Book.new(params)
-      @book.user = @user
+      @book.user = Helpers.current_user(session)
       @book.save
       redirect "/books/#{@book.id}"
     else
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
   patch '/books/:id' do
     @book = Book.find(params[:id])
-    @book.update(params)
+    @book.update(params.except(:_method))
     if @book.save
       redirect "/books/#{@book.id}"
     else
@@ -43,8 +43,10 @@ class BooksController < ApplicationController
     end
   end
 
-  delete '/books/:slug' do
+  delete '/books/:id' do
     @book = Book.find(params[:id])
     @book.destroy
+    @user = Helpers.current_user(session)
+    redirect "/users/#{@user.id}"
   end
 end
