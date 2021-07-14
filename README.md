@@ -12,18 +12,18 @@ Simply fork and clone this repo, and perform ```bundle install```. Then navigate
 Novellogger utilizes two models: User and Book. Each model has it's own respective controller that inherits from the ApplicationController class.
 
 Here are Novellogger's routes:
-  / (The Novellogger Homepage)
-  User routes:
-    /signup
-    /login
-      -All passwords are encrypted using the bcrypt gem.
-    /users/:id (Individual user's page)
-  Book routes:
-    /books (All books currently logged on Novellogger)
-    /books/new (Form for logged in user to add a new book)
-    /books/:id (An individual book's page)
-      -this page has an added Delete Entry button that deletes the book from the database.
-    /books/:id/edit (Allows logged in user to edit a book if it belongs to them)
+  - / (The Novellogger Homepage)
+  - User routes:
+    - /signup
+    - /login
+      - All passwords are encrypted using the bcrypt gem.
+    - /users/:id (Individual user's page)
+  - Book routes:
+    - /books (All books currently logged on Novellogger)
+    - /books/new (Form for logged in user to add a new book)
+    - /books/:id (An individual book's page)
+      - this page has an added Delete Entry button that deletes the book from the database.
+    - /books/:id/edit (Allows logged in user to edit a book if it belongs to them)
 
 ## Contributing
 
