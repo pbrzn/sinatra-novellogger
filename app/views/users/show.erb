@@ -13,6 +13,12 @@
   <br>
   <br>
 
+  <h3><i>Unread:</i></h3>
+  <% @unread.each do |book| %>
+  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <% end %>
+  <br>
+
   <h3><i>In Progress:</i></h3>
   <% @in_progress.each do |book| %>
   <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
@@ -24,11 +30,7 @@
   <u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
   <% end %>
   <br>
-
-  <h3><i>Unread:</i></h3>
-  <% @unread.each do |book| %>
-  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
-  <% end %>
+  <br>
 <% elsif @user.books.empty? && session[:user_id] != @user.id %>
   <%= @user.username %> has not logged any books yet.
 <% else %>

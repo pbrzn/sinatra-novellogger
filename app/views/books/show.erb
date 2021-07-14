@@ -16,7 +16,7 @@ Current Progress: <%= @book.progress %><br>
 <% if @book.user_rating && @book.progress == "Finished" %>
 <i><%= @book.user.username %>'s</i> Rating: <%= @book.user_rating %>/5<br>
 <% end %>
-<% if !!@book.user_review %>
+<% if @book.user_review != "" %>
 <i><%= @book.user.username %>'s</i> Thoughts on <b><%= @book.title %></b>: "<%= @book.user_review %>"<br>
 <% end %>
 <br>
@@ -29,4 +29,9 @@ Current Progress: <%= @book.progress %><br>
   <input type="hidden" id="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Entry">
 </form>
+<% end %>
+<% if Helpers.logged_in?(session)%>
+  <form action="/logout" method="POST">
+    <input type="submit" value="Log Out">
+  </form>
 <% end %>

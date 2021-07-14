@@ -19,6 +19,7 @@ class BooksController < ApplicationController
       @book.save
       redirect "/books/#{@book.id}"
     else
+      flash[:error] = "Please enter the book's title and author at minimum to add your book to your reading list."
       redirect "/books/new"
     end
   end

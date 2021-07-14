@@ -8,3 +8,8 @@
   <% end %>
   <br>
 <% end %>
+<% if Helpers.logged_in?(session)%>
+  <form action="/logout" method="POST">
+    <input type="submit" value="Log Out">
+  </form>
+<% end %>

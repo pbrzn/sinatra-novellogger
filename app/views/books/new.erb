@@ -1,5 +1,9 @@
 <h2>Add a new book to your reading list...</h2>
 
+<% if flash.has?(:error) %>
+<p class="flash-error" id="flash-error"><%= flash[:error] %></p>
+<% end %>
+
 <form action="/books" method="POST">
   Title: <input type="text" name="title"><br>
   Author: <input type="text" name="author"><br>
@@ -17,4 +21,8 @@
     5 <input type="radio" name="user_rating" value="5"><br>
   Thoughts & Review: <input type="textarea" name="user_review"><br>
   <input type="submit" value="Add New Book">
+</form>
+
+<form action="/logout" method="POST">
+  <input type="submit" value="Log Out">
 </form>
