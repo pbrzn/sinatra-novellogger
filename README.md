@@ -5,7 +5,7 @@ An interactive reading list built using Sinatra. You can upload books to your re
 
 ## Installation
 
-Simply fork and clone this repo, and perform ```bundle install```. Then navigate to the sinatra-novellogger directory and migraet/seed the database. Type ```shotgun``` in the command line. Navigate to your localhost port 9393 in your browser and then you're ready to use Novellogger!
+Simply fork and clone this repo, and perform ```bundle install```. Then navigate to the ```sinatra-novellogger``` directory in your temrinal and migrate/seed the database. Type ```shotgun``` in the command line. Navigate to your localhost port 9393 in your browser and then you're ready to use Novellogger!
 
 ## Usage
 
