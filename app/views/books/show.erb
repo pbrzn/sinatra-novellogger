@@ -6,7 +6,7 @@ Author: <%= @book.author %><br>
 <% if @book.year_of_publication %>
 Year Of Publication: <%= @book.year_of_publication %><br>
 <% end %>
-<% if !@book.category.empty? %>
+<% if @book.category %>
 Category: <%= @book.category %><br>
 <% end %>
 <% if !@book.genre.empty? %>

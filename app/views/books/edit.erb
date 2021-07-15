@@ -3,7 +3,10 @@
   Title: <input type="text" name="title" value="<%= @book.title %>"><br>
   Author: <input type="text" name="author" value="<%= @book.author %>"><br>
   Year Of Publication: <input type="text" name="year_of_publication" value="<%= @book.year_of_publication %>"><br>
-  Category (Fiction or Non-Fiction): <input type="text" name="category" value="<%= @book.category %>"><br>
+  Category: Fiction <input type="radio" name="category" value="Fiction" <%='checked' if @book.category == "Fiction" %>>
+    Non-Fiction <input type="radio" name="category" value="Non-Fiction" <%='checked' if @book.category == "Non-Fiction" %>>
+    Poetry <input type="radio" name="category" value="Poetry" <%='checked' if @book.category == "Poetry" %>>
+    Drama <input type="radio" name="category" value="Drama" <%='checked' if @book.category == "Drama" %>><br>
   Genre: <input type="text" name="genre" value="<%= @book.genre %>"><br>
   Progress: Unread <input type="radio" name="progress" value="Unread" <%='checked' if @book.progress == "Unread" %>>
     In Progress <input type="radio" name="progress" value="In Progress" <%='checked' if @book.progress == "In Progress" %>>
