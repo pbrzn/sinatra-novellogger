@@ -6,10 +6,10 @@ Author: <%= @book.author %><br>
 <% if @book.year_of_publication %>
 Year Of Publication: <%= @book.year_of_publication %><br>
 <% end %>
-<% if @book.category %>
+<% if !@book.category.empty? %>
 Category: <%= @book.category %><br>
 <% end %>
-<% if @book.genre %>
+<% if !@book.genre.empty? %>
 Genre: <%= @book.genre %><br>
 <% end %>
 Current Progress: <%= @book.progress %><br>

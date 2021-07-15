@@ -4,8 +4,10 @@ elvis = User.create(:username => "ElvisPresley", :email => "graceland@altavista.
 lennon = User.create(:username => "JohnLennon", :email => "PlasticOno@yahoo.com", :password => "0hY0k0")
 
 orange = Book.create(:title => "A Clockwork Orange", :author => "Anthony Burgess", :year_of_publication => 1962, :category => "Fiction", :genre => "Science Fiction", :user_id => 1, :progress => "Finished", :user_rating => 5)
-lunch = Book.create(:title => "Maked Lunch", :author => "William S. Burroughs", :year_of_publication => 1955, :category => "Fiction", :genre => "Beat", :user_id => 1, :progress => "Finished", :user_rating => 5, :user_review => "A window into one of the greatest and most terrifying minds of the 20th century.")
+lunch = Book.create(:title => "Naked Lunch", :author => "William S. Burroughs", :year_of_publication => 1959, :category => "Fiction", :genre => "Beat Literature", :user_id => 1, :progress => "Finished", :user_rating => 5, :user_review => "A window into one of the greatest and most terrifying minds of the 20th century.")
+mach = Book.create(:title => "The Prince", :author => "Niccolo Machiavelli", :year_of_publication => 1532, :category => "Non-Fiction", :genre => "Philosophy", :user_id => 2, :progress => "Unread")
 purple = Book.create(:title => "The Color Purple", :author => "Alice Walker", :year_of_publication => 1982, :category => "Fiction", :genre => "Epistolary", :user_id => 2, :progress => "Finished")
+crayon = Book.create(:title => "Harold And The Purple Crayon", :author => "Crockett Johnson", :year_of_publication => 1955, :category => "Fiction", :genre => "Children's Literature", :user_id => 2, :progress => "Finished")
 candide = Book.create(:title => "Candide", :author => "Voltaire", :year_of_publication => 1759, :category => "Fiction", :genre => "Satire", :user_id => 2, :progress => "In Progress")
 orchid = Book.create(:title => "The Orchid Thief", :author => "Susan Orlean", :year_of_publication => 1998, :category => "Non-Fiction", :genre => "Biography", :user_id => 1, :progress => "Unread")
 kingsrow = Book.create(:title => "Kings Row", :author => "Henry Bellamann", :year_of_publication => 1940, :category => "Fiction", :genre => "Coming-Of-Age", :user_id => 3, :progress => "Unread")

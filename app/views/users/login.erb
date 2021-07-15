@@ -1,7 +1,7 @@
 <h2>Log In:</h2>
 
 <% if flash.has?(:error) %>
-<p class="flash-error"><%= flash[:error] %></p>
+<p class="flash-error" id="flash-error"><%= flash[:error] %></p>
 <% end %>
 
 <form action="/login" method="POST">

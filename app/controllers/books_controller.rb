@@ -13,13 +13,13 @@ class BooksController < ApplicationController
   end
 
   post '/books' do
-    if !params[:title].empty? && !params[:author].empty?
+    if !params[:title].empty? && !params[:author].empty? && !!params[:progress]
       @book = Book.new(params)
       @book.user = Helpers.current_user(session)
       @book.save
       redirect "/books/#{@book.id}"
     else
-      flash[:error] = "Please enter the book's title and author at minimum to add your book to your reading list."
+      flash[:error] = "Please enter the book's title and author, and select your current progress to add your book to your reading list."
       redirect "/books/new"
     end
   end
