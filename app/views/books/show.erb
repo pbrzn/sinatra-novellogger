@@ -16,7 +16,7 @@ Current Progress: <%= @book.progress %><br>
 <% if @book.user_rating && @book.progress == "Finished" %>
 <i><%= @book.user.username %>'s</i> Rating: <%= @book.user_rating %>/5<br>
 <% end %>
-<% if @book.user_review != "" %>
+<% if @book.user_review != nil && @book.user_review != "" %>
 <i><%= @book.user.username %>'s</i> Thoughts on <b><%= @book.title %></b>: "<%= @book.user_review %>"<br>
 <% end %>
 <br>
