@@ -2,9 +2,11 @@
 <% @users.each do |user| %>
   <% if !user.books.empty? %>
     <h3><a href="/users/<%= user.id %>"><%= user.username %>'s</a> Books:</h3>
+    <ul>
     <% user.books.each do |book| %>
-      <a class="book-link" href="/books/<%= book.id %>"><%= book.title %></a> by: <%= book.author %><br>
+      <li><a class="book-link" href="/books/<%= book.id %>"><%= book.title %></a> by: <%= book.author %></li>
     <% end %>
+    </ul>
   <% end %>
   <br>
 <% end %>

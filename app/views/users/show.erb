@@ -14,21 +14,27 @@
   <br>
 
   <h3><i>Unread:</i></h3>
+  <ul>
   <% @unread.each do |book| %>
-  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <li><u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %></li>
   <% end %>
+  </ul>
   <br>
 
   <h3><i>In Progress:</i></h3>
+  <ul>
   <% @in_progress.each do |book| %>
-  <u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %><br>
+  <li><u><a href="/books/<%= book.id %>"><%= book.title %></a></u> by: <%= book.author %></li>
   <% end %>
+  </ul>
   <br>
 
   <h3><i>Finished:</i></h3>
+  <ul>
   <% @finished.each do |book| %>
-  <u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %><br>
+  <li><u><a href="/books/<%= book.id %>"><%= book.title %><a/></u> by: <%= book.author %></li>
   <% end %>
+  </ul>
   <br>
   <br>
 <% elsif @user.books.empty? && session[:user_id] != @user.id %>
