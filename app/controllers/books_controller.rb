@@ -30,9 +30,13 @@ class BooksController < ApplicationController
   end
 
   get '/books/:id/edit' do
-    @book = Book.find(params[:id])
+    if Helpers.logged_in?(session)
+      @book = Book.find(params[:id])
+    else
+      redirect '/login'
+    end
     @user = Helpers.current_user(session)
-    if Helpers.logged_in?(session) && @book.user == @user
+    if @book.user == @user
       erb :'books/edit'
     else
       redirect "/users/#{@user.id}"
