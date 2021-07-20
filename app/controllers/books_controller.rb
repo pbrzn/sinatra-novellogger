@@ -36,10 +36,15 @@ class BooksController < ApplicationController
 
   patch '/books/:id' do
     @book = Book.find(params[:id])
-    @book.update(params.except(:_method))
-    if @book.save
-      redirect "/books/#{@book.id}"
+    if !params[:title].empty? && !params[:author].empty? && !!params[:progress]
+      @book.update(params.except(:_method))
+      if @book.save
+        redirect "/books/#{@book.id}"
+      else
+        redirect "/books/#{@book.id}/edit"
+      end
     else
+      flash[:error] = "A book must include title, author, and your current progress."
       redirect "/books/#{@book.id}/edit"
     end
   end

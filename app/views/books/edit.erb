@@ -1,4 +1,8 @@
-<h2>Editing Entry On... <u><%= @book.title %></u></h2>
+<h2>Editing <a href="/users/<%= @book.user_id %>"><%= @book.user.username %></a>'s Entry On... <u><%= @book.title %></u></h2>
+
+<% if flash.has?(:error) %>
+  <p class="flash-error" id="flash-error"><%= flash[:error] %></p>
+<% end %>
 
 <form action="/books/<%= @book.id %>" method="POST">
   <input type="hidden" id="hidden" name="_method" value="PATCH">
