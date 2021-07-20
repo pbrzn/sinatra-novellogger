@@ -3,33 +3,43 @@
 Reader: <%= @book.user.username %><br>
 Book: <b><%= @book.title %></b><br>
 Author: <%= @book.author %><br>
+
 <% if @book.year_of_publication %>
-Year Of Publication: <%= @book.year_of_publication %><br>
+  Year Of Publication: <%= @book.year_of_publication %><br>
 <% end %>
+
 <% if @book.category %>
-Category: <%= @book.category %><br>
+  Category: <%= @book.category %><br>
 <% end %>
+
 <% if !@book.genre.empty? %>
-Genre: <%= @book.genre %><br>
+  Genre: <%= @book.genre %><br>
 <% end %>
+
 Current Progress: <%= @book.progress %><br>
+
 <% if @book.user_rating && @book.progress == "Finished" %>
-<i><%= @book.user.username %>'s</i> Rating: <%= @book.user_rating %>/5<br>
+  <i><%= @book.user.username %>'s</i> Rating: <%= @book.user_rating %>/5<br>
 <% end %>
+
 <% if @book.user_review != nil && @book.user_review != "" %>
-<i><%= @book.user.username %>'s</i> Thoughts on <b><%= @book.title %></b>: "<%= @book.user_review %>"<br>
+  <i><%= @book.user.username %>'s</i> Thoughts on <b><%= @book.title %></b>: "<%= @book.user_review %>"<br>
 <% end %>
+
 <br>
 <br>
+
 <% if Helpers.logged_in?(session) && session[:user_id] == @book.user_id %>
-<form action="/books/<%= @book.id %>/edit" method="GET">
-  <input type="submit" value="Edit Entry">
-</form>
-<form action="/books/<%= @book.id %>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Entry">
-</form>
+  <form action="/books/<%= @book.id %>/edit" method="GET">
+    <input type="submit" value="Edit Entry">
+  </form>
+  
+  <form action="/books/<%= @book.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Entry">
+  </form>
 <% end %>
+
 <% if Helpers.logged_in?(session)%>
   <form action="/logout" method="POST">
     <input type="submit" value="Log Out">
